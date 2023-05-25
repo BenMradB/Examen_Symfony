@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tache{% endblock %}
+
+{% block body %}
+    {% if error == 0 %}
+        <h1>Create new Tache</h1>
+
+        {{ include('tache/_form.html.twig') }}
+
+        <a href="{{ path('app_tache_index') }}">back to list</a>
+    {% else %}
+        <h1>You are not authenticated</h1>
+    {% endif %}
+{% endblock %}

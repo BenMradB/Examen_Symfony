@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utulisateur index{% endblock %}
+
+{% block body %}
+    <h1>Utulisateur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse_email</th>
+                <th>Met_passe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utulisateur in utulisateurs %}
+            <tr>
+                <td>{{ utulisateur.id }}</td>
+                <td>{{ utulisateur.nom }}</td>
+                <td>{{ utulisateur.adresseEmail }}</td>
+                <td>{{ utulisateur.metPasse }}</td>
+                <td>
+                    <a href="{{ path('app_utulisateur_show', {'id': utulisateur.id}) }}">show</a>
+                    <a href="{{ path('app_utulisateur_edit', {'id': utulisateur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_utulisateur_new') }}">Create new</a>
+{% endblock %}

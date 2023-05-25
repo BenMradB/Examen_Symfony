@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Utulisateur{% endblock %}
+
+{% block body %}
+    <h1>Edit Utulisateur</h1>
+
+    {{ include('utulisateur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_utulisateur_index') }}">back to list</a>
+
+    {{ include('utulisateur/_delete_form.html.twig') }}
+{% endblock %}

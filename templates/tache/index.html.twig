@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tache index{% endblock %}
+
+{% block body %}
+    {% if error == 0 %}
+        <h1>Tache index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Dat_limite</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tache in taches %}
+                <tr>
+                    <td>{{ tache.id }}</td>
+                    <td>{{ tache.titre }}</td>
+                    <td>{{ tache.description }}</td>
+                    <td>{{ tache.datLimite ? tache.datLimite|date('Y-m-d') : '' }}</td>
+                    <td>{{ tache.statut ? tache.statut|join(', ') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_tache_show', {'id': tache.id}) }}">show</a>
+                        <a href="{{ path('app_tache_edit', {'id': tache.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_tache_new') }}">Create new</a>
+    {% else %}
+        <h1>You are not authenticated !</h1>
+    {% endif %}
+{% endblock %}

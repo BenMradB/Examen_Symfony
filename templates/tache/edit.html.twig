@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tache{% endblock %}
+
+{% block body %}
+        {% if error == 0 %}
+                <h1>Edit Tache</h1>
+
+                {{ include('tache/_form.html.twig', {'button_label': 'Update'}) }}
+
+                <a href="{{ path('app_tache_index') }}">back to list</a>
+
+                {{ include('tache/_delete_form.html.twig') }}
+        {% else %}
+                <h1>Your Not Authenticated</h1>
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Utulisateur{% endblock %}
+
+{% block body %}
+    <h1>Login Please</h1>
+
+    {{ include('utulisateur/_form.html.twig') }}
+
+    {% if error != '' %}
+    <h1> {{ error }} </h1>
+    {% endif %}
+{% endblock %}

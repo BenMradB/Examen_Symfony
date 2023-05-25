@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utulisateur{% endblock %}
+
+{% block body %}
+    <h1>Utulisateur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ utulisateur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ utulisateur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_email</th>
+                <td>{{ utulisateur.adresseEmail }}</td>
+            </tr>
+            <tr>
+                <th>Met_passe</th>
+                <td>{{ utulisateur.metPasse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_utulisateur_index') }}">back to list</a>
+
+    <a href="{{ path('app_utulisateur_edit', {'id': utulisateur.id}) }}">edit</a>
+
+    {{ include('utulisateur/_delete_form.html.twig') }}
+{% endblock %}
